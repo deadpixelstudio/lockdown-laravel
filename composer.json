@@ -10,5 +10,15 @@
     "require": {},
     "require-dev": {
         "orchestra/testbench": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "DeadPixelStudio\\Lockdown\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DeadPixelStudio\\Lockdown\\Tests": "tests/"
+        }
     }
 }
