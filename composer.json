@@ -1,0 +1,14 @@
+{
+    "name": "deadpixelstudio/lockdown",
+    "description": "A package to add Groups and Permissions for user control in Laravel",
+    "authors": [
+        {
+            "name": "deadpixelstudio",
+            "email": "support@deadpixelstudio.co.uk"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^3.8"
+    }
+}
