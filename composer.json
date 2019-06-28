@@ -7,7 +7,9 @@
             "email": "support@deadpixelstudio.co.uk"
         }
     ],
-    "require": {},
+    "require": {
+        "kalnoy/nestedset": "^4.3"
+    },
     "require-dev": {
         "orchestra/testbench": "^3.8"
     },
@@ -18,7 +20,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "DeadPixelStudio\\Lockdown\\Tests": "tests/"
+            "DeadPixelStudio\\Lockdown\\Tests\\": "tests/"
         }
     }
 }
