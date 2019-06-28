@@ -3,12 +3,14 @@
 namespace DeadPixelStudio\Lockdown\Tests;
 
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use DeadPixelStudio\Lockdown\Providers\LockdownServiceProvider;
-use Deadpixelstudio\Lockdown\Providers\RouteServiceProvider;
 use Kalnoy\Nestedset\NestedSetServiceProvider;
 
 class TestCase extends TestbenchTestCase
 {
+    use RefreshDatabase;
+
     protected function setUp() :void
     {
         parent::setUp();
