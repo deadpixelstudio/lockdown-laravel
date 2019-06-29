@@ -38,10 +38,22 @@ class GroupManagementTest extends TestCase
     }
 
     /** @test */
-    function it_returns_a_group_if_found()
+    public function it_returns_a_collection_of_groups()
     {
-        $this->withExceptionHandling();
-        
+        $groups = factory(Group::class, 2)->create();
+
+        $response = $this->json('GET', 'api/lockdown/groups');
+
+        $groups->each(function ($group) use ($response) {
+            $response->assertJsonFragment([
+                'slug' => $group->slug
+            ]);
+        });
+    }
+
+    /** @test */
+    function it_returns_a_group_if_found()
+    {        
         $group = factory(Group::class)->create();
 
         $this->json('GET', $group->path())
