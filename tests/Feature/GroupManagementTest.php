@@ -13,8 +13,28 @@ class GroupManagementTest extends TestCase
         $group = factory(Group::class)->raw();
 
         $this->json('POST', 'api/lockdown/groups', $group)
-            ->assertStatus(201);;
+            ->assertStatus(201);
         $this->assertDatabaseHas('groups', $group);
+    }
+
+    /** @test */
+    function a_user_can_update_a_group()
+    {
+        $group = factory(Group::class)->create();
+        
+        $this->json('PATCH', $group->path(), ['name' => 'Updated Name', 'slug' => 'updated_name'])
+            ->assertJsonFragment([
+                'name' => 'Updated Name'
+            ]);
+    }
+
+    /** @test */
+    function a_user_can_delete_a_group()
+    {
+        $group = factory(Group::class)->create();
+
+        $this->json('DELETE', $group->path());
+        $this->assertDatabaseMissing('groups', $group->toArray());
     }
 
     /** @test */
