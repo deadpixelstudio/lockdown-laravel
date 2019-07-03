@@ -4,6 +4,7 @@ namespace DeadPixelStudio\Lockdown\Tests\Unit;
 
 use DeadPixelStudio\Lockdown\Tests\TestCase;
 use DeadPixelStudio\Lockdown\Models\Group;
+use Illuminate\Database\Eloquent\Collection;
 
 class GroupTest extends TestCase
 {
@@ -13,6 +14,14 @@ class GroupTest extends TestCase
         $group = factory(Group::class)->create();
 
         $this->assertEquals("api/lockdown/groups/{$group->id}", $group->path());
+    }
+
+    /** @test */
+    function a_group_has_users()
+    {
+        $group = factory(Group::class)->create();
+
+        $this->assertInstanceOf(Collection::class, $group->users);
     }
 
     /** @test */
