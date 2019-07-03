@@ -25,6 +25,14 @@ class GroupTest extends TestCase
     }
 
     /** @test */
+    function a_group_has_permissions()
+    {
+        $group = factory(Group::class)->create();
+
+        $this->assertInstanceOf(Collection::class, $group->permissions);
+    }
+
+    /** @test */
     function it_can_have_a_parent_group()
     {
         $parentGroup = factory(Group::class)->create(['name' => 'Parent Group']);

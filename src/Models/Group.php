@@ -43,6 +43,11 @@ class Group extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
     public function addUser($user)
     {
         if (!$this->has_users) {
@@ -56,5 +61,15 @@ class Group extends Model
     public function removeUser($user)
     {
         return $this->users()->detach($user->id);
+    }
+
+    public function addPermission($permission)
+    {
+        return $this->permissions()->attach($permission->id);
+    }
+
+    public function removePermission($permission)
+    {
+        return $this->permissions()->detach($permission->id);
     }
 }
