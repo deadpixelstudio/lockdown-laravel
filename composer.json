@@ -22,5 +22,12 @@
         "psr-4": {
             "DeadPixelStudio\\Lockdown\\Tests\\": "tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DeadPixelStudio\\Lockdown\\Providers\\LockdownServiceProvider"
+            ]
+        }
     }
 }
