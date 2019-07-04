@@ -65,11 +65,11 @@ class Group extends Model
 
     public function addPermission($permission)
     {
-        return $this->permissions()->attach($permission->id);
+        return $this->permissions()->attach($permission);
     }
 
     public function removePermission($permission)
     {
-        return $this->permissions()->detach($permission->id);
+        return $this->permissions()->detach($permission);
     }
 }
