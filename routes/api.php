@@ -1,7 +1,7 @@
 <?php
 
-Route::resource('groups', 'GroupController');
-Route::resource('permissions', 'PermissionController');
+Route::apiResource('groups', 'GroupController');
+Route::apiResource('permissions', 'PermissionController');
 
-Route::resource('groups.users', 'GroupUserController')->only(['store', 'destroy']);
-Route::resource('groups.permissions', 'GroupPermissionController')->only(['store', 'destroy']);
+Route::apiResource('groups.users', 'GroupUserController')->only(['store', 'destroy']);
+Route::apiResource('groups.permissions', 'GroupPermissionController')->only(['store', 'destroy']);
